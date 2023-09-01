@@ -1,0 +1,12 @@
+Bundle-Name: author-book-api
+Bundle-SymbolicName: com.author_book.api
+Bundle-Version: 1.0.0
+Export-Package: \
+	com.author_book.exception,\
+	com.author_book.model,\
+	com.author_book.service,\
+	com.author_book.service.persistence,\
+	com.author_book.constants,\
+    com.author_book.vaildator
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../author-book-service/service.xml

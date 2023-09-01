@@ -1,0 +1,13 @@
+dependencies {
+	compile project(":modules:author-book:author-book-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+}
+
+buildService {
+	apiDir = "../author-book-api/src/main/java"
+}
+
+group = "com.author_book"
+
+configurations.all{resolutionStrategy.force 'com.liferay:com.liferay.portal.tools.service.builder:1.0.448'}

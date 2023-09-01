@@ -1,0 +1,7 @@
+Bundle-Name: author-book-service
+Bundle-SymbolicName: com.author_book.service
+Bundle-Version: 1.0.0
+Liferay-Require-SchemaVersion: 1.0.0
+Liferay-Service: true
+-dsannotations-options: inherit
+Export-Package: com.author_book.validator.impl

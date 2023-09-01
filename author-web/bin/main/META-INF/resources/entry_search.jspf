@@ -1,0 +1,49 @@
+<%@page import="com.liferay.portal.kernel.util.LocaleUtil"%>
+<%-- <portlet:renderURL var="viewAssignmentURL">
+     <portlet:param name="mvcRenderCommandName" value="/" />
+     <portlet:param name="redirect" value="${currentURL}" />
+     <portlet:param name="authorId" value="${book.bookId}" />
+ </portlet:renderURL> --%>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <liferay-ui:search-container-column-text 
+             name="Id" 
+             value="${author.authorId}" 
+         />
+
+         <liferay-ui:search-container-column-user 
+             name="user" 
+             userId="${author.userId}" 
+         />
+
+         <liferay-ui:search-container-column-date 
+             name="create-date"
+             property="createDate" 
+         />
+         
+          <liferay-ui:search-container-column-text 
+             name="Author Name"
+             value="${author.authorName}" 
+         />
+         
+         <%-- <liferay-ui:search-container-column-text 
+             name="Book Dercription"
+             value="${book.bookDescription}" 
+         />
+         
+         <liferay-ui:search-container-column-text 
+             name="Book Price"
+             value="${book.bookPrice}" 
+         /> --%>
+
+         <liferay-ui:search-container-column-jsp 
+             name="actions"
+             path="/entry_actions.jsp" 
+         />

@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="com.author_book">
+	<namespace>Assignment</namespace>
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+	<entity local-service="true" name="Author" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="authorId" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="authorName" type="String" />
+		<column name="bookId" type="Collection" entity="Book" mapping-table="Author_Book"/>
+
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="groupId" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="byAuthorGroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+
+		<!-- References -->
+
+
+		<reference entity="AssetEntry"
+			package-path="com.liferay.portlet.asset"></reference>
+		<reference entity="AssetLink"
+			package-path="com.liferay.portlet.asset"></reference>
+		<reference entity="AssetTag"
+			package-path="com.liferay.portlet.asset"></reference>
+
+	</entity>
+
+
+
+	
+	<!-- Book Entity  -->
+
+
+
+		<entity local-service="true" name="Book" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="bookId" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="bookName" type="String" />
+		<column name="bookDescription" type="String" />
+		<column name="bookPrice" type="long" />
+		<column name="authorId" type="Collection" entity="Author" mapping-table="Author_Book"/>
+
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="groupId" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="ByBookGroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+
+		<!-- References -->
+<reference entity="AssetEntry"
+			package-path="com.liferay.portlet.asset"></reference>
+		<reference entity="AssetLink"
+			package-path="com.liferay.portlet.asset"></reference>
+		<reference entity="AssetTag"
+			package-path="com.liferay.portlet.asset"></reference>
+	</entity>
+
+	<!-- Exceptions -->
+
+	<exceptions>
+		<exception>AuthorValidation</exception>
+		<exception>BookValidation</exception>
+	</exceptions>
+
+
+
+</service-builder>
